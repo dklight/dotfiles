@@ -11,6 +11,9 @@ dklight's dotrc files and stuff
   * It requaires installation of the ad-hoc configurations
  * GNU Screen
 
+WARNING
+-------
+*Be aware the automatic installation could (AND PROBABLY DO) damage your current configuration*
 
 Installation
 ------------
