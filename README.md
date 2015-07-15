@@ -16,4 +16,4 @@ Installation
 
 To install just copy this to your terminal:
 
-    curl -L https://raw.githubusercontent.com/dklight/dotrc/master/install.sh
+    curl -L https://raw.githubusercontent.com/dklight/dotrc/master/install.sh | sh
