@@ -6,3 +6,5 @@ dklight's dotrc files and stuff
    * airline - https://github.com/bling/vim-airline
    * colors-solarized - git://github.com/altercation/vim-colors-solarized.git
    * fugitive - https://github.com/tpope/vim-fugitive.git
+ * ZSH configuration with oh-my-zsh (http://ohmyz.sh/)
+  * It requaires installation of the ad-hoc configurations
