@@ -7,7 +7,7 @@ DOTRC=$PROJECTS/dotrc
 # Download configuration
 mkdir -p $PROJECTS
 cd $PROJECTS
-git clone git@github.com:dklight/dotrc.git
+git clone https://github.com:dklight/dotrc
 cd ~/.
 
 # Install oh-my-zsh
