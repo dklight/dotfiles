@@ -4,10 +4,12 @@ set -e
 PROJECTS=~/projects
 DOTRC=$PROJECTS/dotrc
 
-# Download configuration
+# Install git adn download configuration
+sudo apt-get install -y git
 mkdir -p $PROJECTS
 cd $PROJECTS
 git clone https://github.com:dklight/dotrc
+ln -s $DOTRC/gitconfig ~/.gitconfig
 cd ~/.
 
 # Install oh-my-zsh

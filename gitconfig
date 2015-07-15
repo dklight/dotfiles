@@ -1,0 +1,34 @@
+[user]
+	email = dklight@gmail.com
+	name = dklight
+[push]
+	default = matching
+
+[core]
+  pager = /bin/cat
+
+[color]
+  ui     = auto
+  diff   = auto
+  status = auto
+  branch = auto
+
+[mergetool]
+  tool   = vimdiff
+  prompt = false
+
+[difftool]
+  tool   = vimdiff
+  prompt = false
+
+[alias]
+  history = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+
+[apply]
+  whitespace = warn
+
+[help]
+  autocorrect = 1
+
+[status]
+  submodule = 1
