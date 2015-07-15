@@ -4,7 +4,7 @@ dklight's dotrc files and stuff
  * Vim configuration
   * It needs pathogen (https://github.com/tpope/vim-pathogen) to deploy:
    * airline - https://github.com/bling/vim-airline
-   * colors-solarized - git://github.com/altercation/vim-colors-solarized.git
+   * colors-solarized - https://github.com/altercation/vim-colors-solarized
    * fugitive - https://github.com/tpope/vim-fugitive.git
  * ZSH configuration with oh-my-zsh (http://ohmyz.sh/)
   * It requaires installation of the ad-hoc configurations
