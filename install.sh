@@ -19,6 +19,15 @@ if [ ! -n "$ZSH" ]; then
   rm -f ~/.zshrc
   ln -s $DOTRC/zshrc ~/.zshrc
   ln -s $DOTRC/oh-my-zsh/custom/dklight.zsh ~/.oh-my-zsh/custom/
+
+  # Install needed fonts
+  mkdir -p $PROJECTS/fonts
+  cd $PROJECTS/fonts
+  git clone https://github.com/Lokaltog/powerline-fonts.git
+  cd $PROJECTS/fonts/powerline-fonts
+  ./install.sh
+
+  # Make ZSH the default shell
   chsh -s $(which zsh)
 fi
 

@@ -8,7 +8,8 @@ dklight's dotrc files and stuff
    * colors-solarized - https://github.com/altercation/vim-colors-solarized
    * fugitive - https://github.com/tpope/vim-fugitive.git
  * ZSH configuration with oh-my-zsh (http://ohmyz.sh/)
-  * It requaires installation of the ad-hoc configurations
+  * It requires poweerline-fonts (https://github.com/Lokaltog/powerline-fonts.git)
+  * It requires installation of the ad-hoc configurations
  * GNU Screen
 
 WARNING
