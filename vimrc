@@ -10,6 +10,8 @@ autocmd! BufWritePost .vimrc source ~/.vimrc
 "" User Interface
 filetype plugin indent on " load file type plugins + indentation
 set number " need those line numbers
+set mouse=a
+set ttymouse=xterm2
 set ruler " show the line/column number of the cursor position
 set nowrap " don't wrap lines
 set linebreak " break line for wrapping at end of a word
