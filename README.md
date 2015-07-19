@@ -3,13 +3,12 @@ dklight's dotrc files and stuff
 
  * Git configuration
  * Vim configuration
-  * It needs pathogen (https://github.com/tpope/vim-pathogen) to deploy:
+  * It Vundle (https://github.com/VundleVim/Vundle.Vim) to deploy:
    * airline - https://github.com/bling/vim-airline
    * colors-solarized - https://github.com/altercation/vim-colors-solarized
    * fugitive - https://github.com/tpope/vim-fugitive.git
- * ZSH configuration with oh-my-zsh (http://ohmyz.sh/)
+ * ZSH configuration with antigen (https://github.com/zsh-users/antigen)
   * It requires poweerline-fonts (https://github.com/Lokaltog/powerline-fonts.git)
-  * It requires installation of the ad-hoc configurations
  * GNU Screen
 
 WARNING
@@ -21,4 +20,4 @@ Installation
 
 To install just copy this to your terminal:
 
-    curl -L https://raw.githubusercontent.com/dklight/dotrc/master/install.sh | sh
+    curl -L https://raw.githubusercontent.com/dklight/dotfiles/master/install.sh | sh
