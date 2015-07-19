@@ -1,14 +1,37 @@
-call pathogen#infect() " load pathogen
+"call pathogen#infect() " load pathogen
 set nocompatible " choose no compatibility with legacy vi
 set encoding=utf-8 " sensible encoding
 set showcmd " display incomplete commands
 set shell=zsh
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Plugins
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'davidhalter/jedi-vim'
+
+Plugin 'bling/vim-airline'
+
+Plugin 'altercation/vim-colors-solarized'
+
+Plugin 'tpope/vim-fugitive'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+
 " auto reload vimrc when editing it
 autocmd! BufWritePost .vimrc source ~/.vimrc
 
 "" User Interface
-filetype plugin indent on " load file type plugins + indentation
+"filetype plugin indent on " load file type plugins + indentation
+filetype off
 set number " need those line numbers
 set mouse=a
 set ttymouse=xterm2
@@ -25,33 +48,33 @@ set hid " hide abandon buffers in order to not lose undo history
 " remember more commands and search history
 set history=10000
 
-" omni completion
-au FileType python     setl omnifunc=pythoncomplete#Complete
-au FileType ruby       setl omnifunc=rubycomplete#Complete
-au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
-au FileType html       setl omnifunc=htmlcomplete#CompleteTags
-au FileType css        setl omnifunc=csscomplete#CompleteCSS
-au FileType xml        setl omnifunc=xmlcomplete#CompleteTags
-
-autocmd Filetype *
-  \ if &omnifunc == "" |
-  \   setl omnifunc=syntaxcomplete#Complete |
-  \ endif
-
-" decent completion behaviour
-au CursorMovedI * if pumvisible() == 0|pclose|endif
-au InsertLeave  * if pumvisible() == 0|pclose|endif
-set completeopt+=longest
-
-augroup vimrcEx
-" Clear all autocmds in the group
-  autocmd!
-  autocmd FileType text setlocal textwidth=78
-  " Jump to last cursor position unless it's invalid or in an event handler
-autocmd BufReadPost *
-\ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \ exe "normal g`\"" |
-    \ endif
+" " omni completion
+" au FileType python     setl omnifunc=pythoncomplete#Complete
+" au FileType ruby       setl omnifunc=rubycomplete#Complete
+" au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
+" au FileType html       setl omnifunc=htmlcomplete#CompleteTags
+" au FileType css        setl omnifunc=csscomplete#CompleteCSS
+" au FileType xml        setl omnifunc=xmlcomplete#CompleteTags
+" 
+" autocmd Filetype *
+"   \ if &omnifunc == "" |
+"   \   setl omnifunc=syntaxcomplete#Complete |
+"   \ endif
+" 
+" " decent completion behaviour
+" au CursorMovedI * if pumvisible() == 0|pclose|endif
+" au InsertLeave  * if pumvisible() == 0|pclose|endif
+" set completeopt+=longest
+" 
+" augroup vimrcEx
+" " Clear all autocmds in the group
+"   autocmd!
+"   autocmd FileType text setlocal textwidth=78
+"   " Jump to last cursor position unless it's invalid or in an event handler
+" autocmd BufReadPost *
+" \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"     \ exe "normal g`\"" |
+"     \ endif
 
 
 " Indent p tags
