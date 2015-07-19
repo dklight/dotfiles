@@ -5,7 +5,7 @@ PROJECTS=`pwd`
 DOTRC=$PROJECTS/dotfiles
 
 # Install git adn download configuration
-sudo apt-get install -y git
+sudo apt-get update && apt-get install -y git
 git clone https://github.com/dklight/dotfiles.git
 ln -s $DOTRC/_gitconfig ~/.gitconfig
 cd ~/.
@@ -33,7 +33,7 @@ sudo apt-get install -y screen
 ln -s $DOTRC/_screenrc ~/.screenrc
 
 # Install VIM
-sudo apt-get install -y vim-gtk
+sudo apt-get install -y vim-nox
 rm -f ~/.vimrc
 ln -s $DOTRC/_vimrc ~/.vimrc
 mkdir -p ~/.vim/bundle
