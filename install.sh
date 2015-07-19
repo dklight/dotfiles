@@ -6,7 +6,7 @@ DOTRC=$PROJECTS/dotfiles
 
 # Install git adn download configuration
 sudo apt-get install -y git
-git clone https://github.com:dklight/dotfiles
+git clone https://github.com:dklight/dotfiles.git
 ln -s $DOTRC/_gitconfig ~/.gitconfig
 cd ~/.
 
