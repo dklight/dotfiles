@@ -40,8 +40,8 @@ sudo apt-get install -y vim-gtk
 rm -f ~/.vimrc
 ln -s $DOTRC/vimrc ~/.vimrc
 mkdir -p ~/.vim/autoload ~/.vim/bundle
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-cd ~/.vim/bundle
-git clone https://github.com/bling/vim-airline
-git clone https://github.com/altercation/vim-colors-solarized
-git clone https://github.com/tpope/vim-fugitive.git
+
+# Use Vundle to manage plugins
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# Install plugins described in .vimrc
+vim +PluginInstall
