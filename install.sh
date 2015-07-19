@@ -2,7 +2,7 @@ set -e
 
 # Set paths
 PROJECTS=`pwd`
-DOTRC=$PROJECTS/dotrc
+DOTRC=$PROJECTS/dotfiles
 
 # Install git adn download configuration
 sudo apt-get install -y git
