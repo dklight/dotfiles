@@ -19,7 +19,7 @@ antigen bundle colored-man
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-antigen theme $HOME/projects/dotrc/antigen/themes dklight --no-local-clone
+antigen theme $HOME/projects/dotrc/_antigen/themes dklight --no-local-clone
 
 # Tell antigen that you're done.
 antigen apply
