@@ -1,14 +1,16 @@
-dklight's dotrc files and stuff
+dklight's dotfiles and stuff
 ===============================
 
  * Git configuration
  * Vim configuration
-  * It Vundle (https://github.com/VundleVim/Vundle.Vim) to deploy:
+  * It use Vundle (https://github.com/VundleVim/Vundle.Vim) to manage and deploy:
    * airline - https://github.com/bling/vim-airline
    * colors-solarized - https://github.com/altercation/vim-colors-solarized
    * fugitive - https://github.com/tpope/vim-fugitive.git
+   * jedi - https://github.com/davidhalter/jedi-vim
  * ZSH configuration with antigen (https://github.com/zsh-users/antigen)
   * It requires poweerline-fonts (https://github.com/Lokaltog/powerline-fonts.git)
+ * Autoenv - https://github.com/kennethreitz/autoenv
  * GNU Screen
 
 WARNING
@@ -24,12 +26,11 @@ To install just copy this to your terminal:
 
 TODO
 ----
- * Add autoenv as submodule
+ * DONE: Add autoenv as submodule
  * DONE: Add dircolors
  * Check for previous existence of the files
  * Start using https://github.com/dongweiming/dotfiles bootstrap.sh
- * Install autoenv
- * Start using git submodules
+ * PROCESS: Start using git submodules
  * Check for Debian/RedHat
  * Check for root for sudo calling
  * Check if xset is present

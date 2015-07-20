@@ -8,7 +8,13 @@ DOTFILES=$PROJECTS/dotfiles
 sudo apt-get update && apt-get install -y git
 git clone https://github.com/dklight/dotfiles.git
 ln -s $DOTFILES/_gitconfig ~/.gitconfig
-cd ~/.
+
+# Init submodules
+git submodule update --init --recursive
+git submodule foreach --recursive git pull origin master
+
+# Install autoenv
+ln -s $DOTFILES/_autoenv ~/.autoenv
 
 # Install zsh and antigen
 if [ ! -n "$ZSH" ]; then
