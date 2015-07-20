@@ -41,8 +41,8 @@ export VAGRANT_DEFAULT_PROVIDER=libvirt
 export PATH=$PATH:~/bin
 
 # Disable screen sleeping in Ubuntu
-xset -dpms >/dev/null 2>&1 || echo "Didn't found xset. Ignoring"
-xset s off >/dev/null 2>&1 || echo "Didn't found xset. Ignoring"
+xset -dpms >/dev/null 2>&1
+xset s off >/dev/null 2>&1
 
 # Set ssh passphrase dialog for KDE
 export SSH_ASKPASS=/usr/bin/ksshaskpass

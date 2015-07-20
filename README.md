@@ -30,9 +30,9 @@ TODO
  * DONE: Add dircolors
  * DONE: Check if xset is present
  * DONE: Start using git submodules instead of cloning repos
+ * DONE: Remove harcoded "projects" from the path
  * Check for previous existence of the files
  * Start using https://github.com/dongweiming/dotfiles bootstrap.sh
  * Check for Debian/RedHat
  * Check for root for sudo calling
- * Remove harcoded "projects" from the path
  * Check for best choice for sshaskpass
