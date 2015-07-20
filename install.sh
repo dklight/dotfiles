@@ -26,7 +26,7 @@ if [ ! -n "$ZSH" ]; then
   ln -s $DOTFILES/_zshrc ~/.zshrc
 
   # Install needed fonts
-  powerline-fonts/install.sh
+  $DOTFILES/powerline-fonts/install.sh
 
   # Install dircolors
   ln -s $DOTFILES/_dircolors ~/.dircolors

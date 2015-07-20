@@ -35,3 +35,4 @@ TODO
  * Check for Debian/RedHat
  * Check for root for sudo calling
  * Remove harcoded "projects" from the path
+ * Check for best choice for sshaskpass
