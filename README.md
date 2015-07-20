@@ -21,3 +21,15 @@ Installation
 To install just copy this to your terminal:
 
     curl -L https://raw.githubusercontent.com/dklight/dotfiles/master/install.sh | sh
+
+TODO
+----
+ * Add autoenv as submodule
+ * Add dircolors
+ * Check for previous existence of the files
+ * Start using https://github.com/dongweiming/dotfiles bootstrap.sh
+ * Install autoenv
+ * Start using git submodules
+ * Check for Debian/RedHat
+ * Check for root for sudo calling
+ * Check if xset is present
