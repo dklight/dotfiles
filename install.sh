@@ -24,11 +24,7 @@ if [ ! -n "$ZSH" ]; then
   ln -s $DOTFILES/_zshrc ~/.zshrc
 
   # Install needed fonts
-  mkdir fonts
-  cd fonts
-  git clone https://github.com/Lokaltog/powerline-fonts.git
-  cd powerline-fonts
-  ./install.sh
+  powerline-fonts/install.sh
 
   # Install dircolors
   ln -s $DOTFILES/_dircolors ~/.dircolors
