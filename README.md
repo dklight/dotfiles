@@ -25,7 +25,7 @@ To install just copy this to your terminal:
 TODO
 ----
  * Add autoenv as submodule
- * Add dircolors
+ * DONE: Add dircolors
  * Check for previous existence of the files
  * Start using https://github.com/dongweiming/dotfiles bootstrap.sh
  * Install autoenv

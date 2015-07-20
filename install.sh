@@ -2,12 +2,12 @@ set -e
 
 # Set paths
 PROJECTS=`pwd`
-DOTRC=$PROJECTS/dotfiles
+DOTFILES=$PROJECTS/dotfiles
 
 # Install git adn download configuration
 sudo apt-get update && apt-get install -y git
 git clone https://github.com/dklight/dotfiles.git
-ln -s $DOTRC/_gitconfig ~/.gitconfig
+ln -s $DOTFILES/_gitconfig ~/.gitconfig
 cd ~/.
 
 # Install zsh and antigen
@@ -15,7 +15,7 @@ if [ ! -n "$ZSH" ]; then
   sudo apt-get install -y zsh
   git clone https://github.com/zsh-users/antigen.git ~/.antigen
   rm -f ~/.zshrc
-  ln -s $DOTRC/_zshrc ~/.zshrc
+  ln -s $DOTFILES/_zshrc ~/.zshrc
 
   # Install needed fonts
   mkdir fonts
@@ -24,18 +24,21 @@ if [ ! -n "$ZSH" ]; then
   cd powerline-fonts
   ./install.sh
 
+  # Install dircolors
+  ln -s $DOTFILES/_dircolors ~/.dircolors
+
   # Make ZSH the default shell
   chsh -s $(which zsh)
 fi
 
 # Install GNU Screen
 sudo apt-get install -y screen
-ln -s $DOTRC/_screenrc ~/.screenrc
+ln -s $DOTFILES/_screenrc ~/.screenrc
 
 # Install VIM
 sudo apt-get install -y vim-nox
 rm -f ~/.vimrc
-ln -s $DOTRC/_vimrc ~/.vimrc
+ln -s $DOTFILES/_vimrc ~/.vimrc
 mkdir -p ~/.vim/bundle
 
 # Use Vundle to manage plugins
