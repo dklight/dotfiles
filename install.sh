@@ -41,9 +41,6 @@ ln -s $DOTFILES/_screenrc ~/.screenrc
 sudo apt-get install -y vim-nox
 rm -f ~/.vimrc
 ln -s $DOTFILES/_vimrc ~/.vimrc
-mkdir -p ~/.vim/bundle
 
-# Use Vundle to manage plugins
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-# Install plugins described in .vimrc
-vim +PluginInstall
+rm -rf .vim
+ln -s $DOTFILES/_vim ~/.vim
