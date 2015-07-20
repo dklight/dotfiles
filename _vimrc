@@ -20,6 +20,12 @@ Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+Plugin 'vim-scripts/AutoComplPop'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -48,34 +54,6 @@ set hid " hide abandon buffers in order to not lose undo history
 " remember more commands and search history
 set history=10000
 
-" " omni completion
-" au FileType python     setl omnifunc=pythoncomplete#Complete
-" au FileType ruby       setl omnifunc=rubycomplete#Complete
-" au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
-" au FileType html       setl omnifunc=htmlcomplete#CompleteTags
-" au FileType css        setl omnifunc=csscomplete#CompleteCSS
-" au FileType xml        setl omnifunc=xmlcomplete#CompleteTags
-" 
-" autocmd Filetype *
-"   \ if &omnifunc == "" |
-"   \   setl omnifunc=syntaxcomplete#Complete |
-"   \ endif
-" 
-" " decent completion behaviour
-" au CursorMovedI * if pumvisible() == 0|pclose|endif
-" au InsertLeave  * if pumvisible() == 0|pclose|endif
-" set completeopt+=longest
-" 
-" augroup vimrcEx
-" " Clear all autocmds in the group
-"   autocmd!
-"   autocmd FileType text setlocal textwidth=78
-"   " Jump to last cursor position unless it's invalid or in an event handler
-" autocmd BufReadPost *
-" \ if line("'\"") > 0 && line("'\"") <= line("$") |
-"     \ exe "normal g`\"" |
-"     \ endif
-
 
 " Indent p tags
   autocmd FileType html,eruby if g:html_indent_tags !~ '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | endif
@@ -87,10 +65,6 @@ set hlsearch " highlight matches
 set incsearch " incremental searching
 set ignorecase " searches are case insensitive...
 set smartcase " ... unless they contain at least one capital letter
-set wildmenu " enhanced command line completion
-set wildignore+=*.o,*.obj,.bundle,coverage,doc,.DS_Store,_html,.git,*.rbc,*.class,.svn,vendor/gems/*,vendor/rails/*
-set complete=.,w,b,u,t " don't complete with included files (i)
-set foldmethod=manual " for super fast autocomplete
 
 " Formatting
 set autoindent " auto indentation
@@ -116,6 +90,32 @@ set t_Co=256 " 256 color mode
 set laststatus=2 " always have a status line
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set showtabline=2 " always show tab bar
+
+" Mappings
+let mapleader=","
+cmap W! w !sudo tee % >/dev/null " sudo write this
+let g:pep8_map='<leader>8' " Run pep8
+cmap w!! w !sudo tee % >/dev/null " for when we forget to use sudo to open/edit a file
+nnoremap <leader>. :lcd %:p:h<CR> " Set working directory
+nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR> " Remove trailing whitespace on <leader>S
+
+
+" Completion
+set wildmenu " enhanced command line completion
+set wildmode=full
+set wildignore+=*.o,*.obj,.bundle,coverage,doc,.DS_Store,_html,.git,*.rbc,*.class,.svn,vendor/gems/*,vendor/rails/*
+set complete=.,w,b,u,t " don't complete with included files (i)
+set foldmethod=manual " for super fast autocomplete
+set completeopt=menuone,longest,preview " don't select first item, follow typing in autocomplete
+set pumheight=6 " Keep a small completion window
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+
 
 " vimtip#80 restore cursor to file position in previous editing session
 set viminfo='10,\"100,:20,%,n~/.viminfo
@@ -146,3 +146,6 @@ if !exists('g:airline_powerline_fonts')
   let g:airline_right_sep='‹' " Slightly fancier than '<'
 endif
 set guifont=Liberation\ Mono\ for\ Powerline\ 10
+
+" vim-markdown
+let g:vim_markdown_folding_disabled=1
