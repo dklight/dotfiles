@@ -33,4 +33,4 @@ TODO
  * PROCESS: Start using git submodules
  * Check for Debian/RedHat
  * Check for root for sudo calling
- * Check if xset is present
+ * DONE: Check if xset is present
