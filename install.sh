@@ -10,8 +10,10 @@ git clone https://github.com/dklight/dotfiles.git
 ln -s $DOTFILES/_gitconfig ~/.gitconfig
 
 # Init submodules
+cd $DOTFILES
 git submodule update --init --recursive
 git submodule foreach --recursive git pull origin master
+cd ..
 
 # Install autoenv
 ln -s $DOTFILES/_autoenv ~/.autoenv
