@@ -19,7 +19,7 @@ ln -s $DOTFILES/_autoenv ~/.autoenv
 # Install zsh and antigen
 if [ ! -n "$ZSH" ]; then
   sudo apt-get install -y zsh
-  git clone https://github.com/zsh-users/antigen.git ~/.antigen
+  ln -s $DOTFILES/_antigen ~/.antigen
   rm -f ~/.zshrc
   ln -s $DOTFILES/_zshrc ~/.zshrc
 
