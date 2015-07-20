@@ -1,12 +1,11 @@
 set -e
 
 # Set paths
-PROJECTS=`pwd`
-DOTFILES=$PROJECTS/dotfiles
+DOTFILES=~/.dotfiles
 
 # Install git adn download configuration
 sudo apt-get update && apt-get install -y git
-git clone https://github.com/dklight/dotfiles.git
+git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
 ln -s $DOTFILES/_gitconfig ~/.gitconfig
 
 # Init submodules
