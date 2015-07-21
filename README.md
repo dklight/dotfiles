@@ -22,9 +22,11 @@ Testing
 
 Full configuration can be tested using a [docker](https://www.docker.com/) image.
 If you have docker installed just copy this to your console:
+
     docker build -t dotfiles https://raw.githubusercontent.com/dklight/dotfiles/master/Dockerfile
 
 If you dont know what docker is, you need to use it.
+
     sudo apt-get install docker.io
 
 

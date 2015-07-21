@@ -33,7 +33,7 @@ if [ "$1" = "restore" ]; then
 else
   # Dependencies
   PACKAGES='git zsh screen vim-nox'
-  sudo apt-get update && apt-get install -y $PACKAGES
+  sudo apt-get update && apt-get install -y $PACKAGES >/dev/null 2>&1
 
   # Clone repo
   git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
