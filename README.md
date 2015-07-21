@@ -1,5 +1,5 @@
 dklight's dotfiles and stuff
-===============================
+============================
 
  * Git configuration
  * Vim configuration
@@ -17,6 +17,17 @@ WARNING
 -------
 *Be aware the automatic installation could (AND PROBABLY DO) damage your current configuration*
 
+Testing
+-------
+
+Full configuration can be tested using a [docker](https://www.docker.com/) image.
+If you have docker installed just copy this to your console:
+    docker build -t dotfiles https://raw.githubusercontent.com/dklight/dotfiles/master/Dockerfile
+
+If you dont know what docker is, you need to use it.
+    sudo apt-get install docker.io
+
+
 Installation
 ------------
 
@@ -24,15 +35,15 @@ To install just copy this to your terminal:
 
     curl -L https://raw.githubusercontent.com/dklight/dotfiles/master/install.sh | sh
 
-TODO
-----
+To Do list
+----------
  * DONE: Add autoenv as submodule
  * DONE: Add dircolors
  * DONE: Check if xset is present
  * DONE: Start using git submodules instead of cloning repos
  * DONE: Remove harcoded "projects" from the path
- * Check for previous existence of the files
- * Start using https://github.com/dongweiming/dotfiles bootstrap.sh
+ * DONE: Check for previous existence of the files
+ * DONE: Start using https://github.com/dongweiming/dotfiles bootstrap.sh
  * Check for Debian/RedHat
  * Check for root for sudo calling
  * Check for best choice for sshaskpass

@@ -1,47 +1,60 @@
 set -e
 
-# Set paths
-DOTFILES=~/.dotfiles
+# Functions taken from https://github.com/dongweiming/dotfiles bootstrap.sh
 
-# Install git adn download configuration
-sudo apt-get update && apt-get install -y git
-git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
-ln -s $DOTFILES/_gitconfig ~/.gitconfig
+local function link_file {
+    source="${PWD}/$1"
+    target="${HOME}/${1/_/.}"
 
-# Init submodules
-cd $DOTFILES
-git submodule update --init --recursive
-git submodule foreach --recursive git pull origin master
-cd ..
+    if [ -e "${target}" ] && [ ! -L "${target}" ]; then
+        mv $target $target.df.bak
+    fi
 
-# Install autoenv
-ln -s $DOTFILES/_autoenv ~/.autoenv
+    ln -sf ${source} ${target}
+}
 
-# Install zsh and antigen
-if [ ! -n "$ZSH" ]; then
-  sudo apt-get install -y zsh
-  ln -s $DOTFILES/_antigen ~/.antigen
-  rm -f ~/.zshrc
-  ln -s $DOTFILES/_zshrc ~/.zshrc
+local function unlink_file {
+    source="${PWD}/$1"
+    target="${HOME}/${1/_/.}"
+
+    if [ -e "${target}.df.bak" ] && [ -L "${target}" ]; then
+        unlink ${target}
+        mv $target.df.bak $target
+    fi
+}
+
+
+if [ "$1" = "restore" ]; then
+  for i in _*
+    do
+      unlink_file $i
+    done
+    exit
+else
+  # Dependencies
+  PACKAGES='git zsh screen vim-nox'
+  sudo apt-get update && apt-get install -y $PACKAGES
+
+  # Clone repo
+  git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
+
+  # Initialize submodules
+  cd $DOTFILES
+  git submodule update --init --recursive
+  cd ..
+
+  # Link files
+  for i in _*
+    do
+      link_file $i
+    done
 
   # Install needed fonts
-  $DOTFILES/powerline-fonts/install.sh
-
-  # Install dircolors
-  ln -s $DOTFILES/_dircolors ~/.dircolors
+  ~/.dotfiles/powerline-fonts/install.sh
 
   # Make ZSH the default shell
   chsh -s $(which zsh)
+
+  # Initialize Vim
+  vim +PluginInstall +qall
 fi
-
-# Install GNU Screen
-sudo apt-get install -y screen
-ln -s $DOTFILES/_screenrc ~/.screenrc
-
-# Install VIM
-sudo apt-get install -y vim-nox
-rm -f ~/.vimrc
-ln -s $DOTFILES/_vimrc ~/.vimrc
-
-rm -rf .vim
-ln -s $DOTFILES/_vim ~/.vim
