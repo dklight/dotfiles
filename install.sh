@@ -39,7 +39,7 @@ else
   git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
 
   # Initialize submodules
-  cd $DOTFILES
+  cd ~/.dotfiles
   git submodule update --init --recursive
   cd ..
 
