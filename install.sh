@@ -1,4 +1,4 @@
-set -e
+#!/usr/bin/env bash
 
 # Functions taken from https://github.com/dongweiming/dotfiles bootstrap.sh
 
