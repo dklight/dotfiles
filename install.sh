@@ -2,7 +2,7 @@ set -e
 
 # Functions taken from https://github.com/dongweiming/dotfiles bootstrap.sh
 
-local function link_file {
+function link_file {
     source="${PWD}/$1"
     target="${HOME}/${1/_/.}"
 
@@ -13,7 +13,7 @@ local function link_file {
     ln -sf ${source} ${target}
 }
 
-local function unlink_file {
+function unlink_file {
     source="${PWD}/$1"
     target="${HOME}/${1/_/.}"
 
@@ -33,7 +33,7 @@ if [ "$1" = "restore" ]; then
 else
   # Dependencies
   PACKAGES='git zsh screen vim-nox'
-  sudo apt-get update && apt-get install -y $PACKAGES >/dev/null 2>&1
+  sudo apt-get update && apt-get install -y $PACKAGES
 
   # Clone repo
   git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
