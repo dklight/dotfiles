@@ -37,12 +37,15 @@ else
   sudo apt-get update && apt-get install -y $PACKAGES
 
   # Clone repo
-  git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
+  if [ -e "~/.dotfiles" ]; then
+    git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
+  else
+    echo "The ~/.dotfiles configuration already exists" && exit 1
+  fi
 
   # Initialize submodules
   cd ~/.dotfiles
   git submodule update --init --recursive
-  cd ..
 
   # Link files
   for i in _*
@@ -57,5 +60,5 @@ else
   chsh -s $(which zsh)
 
   # Initialize Vim
-  vim +PluginInstall +qall
+  vim +PluginInstall +qall 2>&1 > /dev/null
 fi
