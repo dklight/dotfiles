@@ -23,7 +23,8 @@ Testing
 Full configuration can be tested using a [docker](https://www.docker.com/) image.
 If you have docker installed just copy this to your console:
 
-    docker build -t dotfiles https://raw.githubusercontent.com/dklight/dotfiles/master/Dockerfile
+    docker build -t dotfiles https://raw.githubusercontent.com/dklight/dotfiles/master/Dockerfile && \
+    docker run --rm -t dotfiles
 
 If you dont know what docker is, you need to use it.
 
@@ -35,7 +36,7 @@ Installation
 
 To install just copy this to your terminal:
 
-    curl -L https://raw.githubusercontent.com/dklight/dotfiles/master/install.sh | sh
+    curl -L https://raw.githubusercontent.com/dklight/dotfiles/master/install.sh | /bin/bash
 
 To Do list
 ----------
