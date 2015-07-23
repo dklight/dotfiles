@@ -16,17 +16,20 @@ dklight's dotfiles and stuff
 WARNING
 -------
 *Be aware the automatic installation could (AND PROBABLY DO) damage your current configuration*
+UPDATE: it actually backs it up, but better be on the safe side.
 
 Testing
 -------
 
 Full configuration can be tested using a [docker](https://www.docker.com/) image.
-If you have docker installed just copy this to your console:
+If you have docker installed just copy this to your terminal:
 
     docker build -t dotfiles https://raw.githubusercontent.com/dklight/dotfiles/master/Dockerfile && \
     docker run --rm -t dotfiles
 
-If you dont know what docker is, you need to use it.
+You can see the whole install process. At the end type zsh to test the terminal.
+
+If you dont know what docker is, you need to use it. You better start by:
 
     sudo apt-get install docker.io
 
@@ -48,5 +51,6 @@ To Do list
  * DONE: Check for previous existence of the files
  * DONE: Start using https://github.com/dongweiming/dotfiles bootstrap.sh
  * Check for Debian/RedHat
+ * Unit testing (sort of)
  * Check for root for sudo calling
  * Check for best choice for sshaskpass
