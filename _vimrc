@@ -1,4 +1,3 @@
-"call pathogen#infect() " load pathogen
 set nocompatible " choose no compatibility with legacy vi
 set encoding=utf-8 " sensible encoding
 set showcmd " display incomplete commands
@@ -21,10 +20,10 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'godlygeek/tabular'
+
 Plugin 'plasticboy/vim-markdown'
 
-Plugin 'vim-scripts/AutoComplPop'
-
+Plugin 'vim-scripts/indenthtml.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -36,8 +35,6 @@ filetype plugin indent on    " required
 autocmd! BufWritePost .vimrc source ~/.vimrc
 
 "" User Interface
-"filetype plugin indent on " load file type plugins + indentation
-filetype off
 set number " need those line numbers
 set mouse=a
 set ttymouse=xterm2
@@ -55,22 +52,12 @@ set hid " hide abandon buffers in order to not lose undo history
 set history=10000
 
 
-" Indent p tags
-  autocmd FileType html,eruby if g:html_indent_tags !~ '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | endif
-augroup END
-
 "" Searching
 set showmatch " cursor shows matching ) and }
 set hlsearch " highlight matches
 set incsearch " incremental searching
 set ignorecase " searches are case insensitive...
 set smartcase " ... unless they contain at least one capital letter
-
-" Formatting
-set autoindent " auto indentation
-set copyindent " copy the previous indentation on autoindenting
-set smarttab " insert tabs on line start according to context
-set paste
 
 "" Colors
 set term=xterm-256color
@@ -86,7 +73,6 @@ highlight SpecialKey guifg=#444444
 set t_Co=256 " 256 color mode
 
 " Window
-" set cmdheight=2 " number of lines for the command line
 set laststatus=2 " always have a status line
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set showtabline=2 " always show tab bar
@@ -101,20 +87,20 @@ nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR> " Remove trailing whitespace on
 
 
 " Completion
-set wildmenu " enhanced command line completion
-set wildmode=full
-set wildignore+=*.o,*.obj,.bundle,coverage,doc,.DS_Store,_html,.git,*.rbc,*.class,.svn,vendor/gems/*,vendor/rails/*
-set complete=.,w,b,u,t " don't complete with included files (i)
-set foldmethod=manual " for super fast autocomplete
-set completeopt=menuone,longest,preview " don't select first item, follow typing in autocomplete
-set pumheight=6 " Keep a small completion window
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
+" set wildmenu " enhanced command line completion
+" set wildmode=full
+" set wildignore+=*.o,*.obj,.bundle,coverage,doc,.DS_Store,_html,.git,*.rbc,*.class,.svn,vendor/gems/*,vendor/rails/*
+" set complete=.,w,b,u,t " don't complete with included files (i)
+" set foldmethod=manual " for super fast autocomplete
+" set completeopt=menuone,longest,preview " don't select first item, follow typing in autocomplete
+" set pumheight=6 " Keep a small completion window
+" autocmd FileType python set omnifunc=pythoncomplete#Complete
+" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+" autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+" autocmd FileType c set omnifunc=ccomplete#Complete
 
 
 " vimtip#80 restore cursor to file position in previous editing session
@@ -149,3 +135,13 @@ set guifont=Liberation\ Mono\ for\ Powerline\ 10
 
 " vim-markdown
 let g:vim_markdown_folding_disabled=1
+
+" Formatting
+filetype on
+filetype plugin on
+set smarttab " insert tabs on line start according to context
+set paste
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+let g:html_indent_inctags = "html,body,head"
+set autoindent " auto indentation
