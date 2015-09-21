@@ -34,13 +34,13 @@ if [ "$1" = "restore" ]; then
 else
   # Dependencies
   PACKAGES='git zsh screen vim-nox'
-  sudo apt-get update && apt-get install -y $PACKAGES
+  sudo apt-get update && sudo apt-get install -y $PACKAGES
 
   # Clone repo
   if [ -e "~/.dotfiles" ]; then
-    git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
-  else
     echo "The ~/.dotfiles configuration already exists" && exit 1
+  else
+    git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
   fi
 
   # Initialize submodules
