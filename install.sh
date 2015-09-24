@@ -33,7 +33,7 @@ if [ "$1" = "restore" ]; then
     exit
 else
   # Dependencies
-  PACKAGES='git zsh screen vim-nox'
+  PACKAGES='git zsh screen vim-nox python-pip'
   sudo apt-get update && sudo apt-get install -y $PACKAGES
 
   # Clone repo
@@ -61,4 +61,7 @@ else
 
   # Initialize Vim
   vim +PluginInstall +qall 2>&1 > /dev/null
+
+  # AWS
+  sudo pip install awscli
 fi

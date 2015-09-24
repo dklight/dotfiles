@@ -54,3 +54,6 @@ ssh() {
     fi
     command ssh "$@"
 }
+
+# AWS Completion
+source /usr/local/bin/aws_zsh_completer.sh
