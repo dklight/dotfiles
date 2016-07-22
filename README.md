@@ -21,7 +21,7 @@ UPDATE: it actually backs it up, but better be on the safe side.
 Testing
 -------
 
-Right now I'm in the process of moving the raw bash scripts to Ansible + Test Kitchena + Vagrant + Serverspec
+Right now I'm in the process of moving the raw bash scripts to Ansible + Test Kitchen + Vagrant + Serverspec
 
 Installation
 ------------
