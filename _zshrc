@@ -34,7 +34,7 @@ alias ls="ls -lh --color=auto"
 export TERM=xterm-256color
 
 # Default Vagrant provider
-export VAGRANT_DEFAULT_PROVIDER=libvirt
+# export VAGRANT_DEFAULT_PROVIDER=libvirt
 
 # Include personal bin
 # TODO Remove
@@ -46,6 +46,11 @@ xset s off >/dev/null 2>&1
 
 # Set ssh passphrase dialog for KDE
 export SSH_ASKPASS=/usr/bin/ksshaskpass
+
+# Virtualenv
+export WORKON_HOME=~/virtualenvs
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+export PIP_VIRTUALENV_BASE=~/virtualenvs
 
 # Store SSH passphrase on the first connection
 ssh() {
