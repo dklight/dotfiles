@@ -33,14 +33,14 @@ if [ "$1" = "restore" ]; then
     exit
 else
   # Dependencies
-  PACKAGES='git zsh screen vim-nox'
-  sudo apt-get update && apt-get install -y $PACKAGES
+  PACKAGES='git zsh screen vim-nox python-pip'
+  sudo apt-get update && sudo apt-get install -y $PACKAGES
 
   # Clone repo
   if [ -e "~/.dotfiles" ]; then
-    git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
-  else
     echo "The ~/.dotfiles configuration already exists" && exit 1
+  else
+    git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
   fi
 
   # Initialize submodules
@@ -61,4 +61,7 @@ else
 
   # Initialize Vim
   vim +PluginInstall +qall 2>&1 > /dev/null
+
+  # AWS
+  sudo pip install awscli
 fi

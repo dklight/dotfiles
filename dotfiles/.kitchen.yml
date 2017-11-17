@@ -1,0 +1,29 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: ansible_playbook
+  playbook: default.yml
+  roles_path: ../dotfiles/ # replace with the name of your role
+  hosts: all
+  require_ansible_repo: false
+  require_ansible_omnibus: true
+  ansible_verbose: true
+  ansible_diff: true
+  ansible_extra_flags: <%= ENV['ANSIBLE_EXTRA_FLAGS'] %>
+
+platforms:
+- name: ubuntu-12.04
+- name: ubuntu-14.04
+- name: fedora-23
+- name: centos-6.7
+- name: centos-7.2
+- name: debian-7.9
+- name: debian-8.2
+
+suites:
+- name: ansible_1.9
+  provisioner:
+    ansible_version: 1.9.4
+- name: ansible_latest

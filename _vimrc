@@ -15,6 +15,8 @@ Plugin 'davidhalter/jedi-vim'
 
 Plugin 'bling/vim-airline'
 
+Plugin 'vim-airline/vim-airline-themes'
+
 Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'tpope/vim-fugitive'
@@ -71,7 +73,11 @@ set smartcase " ... unless they contain at least one capital letter
 "" Colors
 set term=xterm-256color
 syntax enable
-set background=dark " or light
+if has('gui_running')
+  set background=light
+else
+  set background=dark
+endif
 colorscheme solarized " can't work with anything else
 highlight LineNr ctermfg=darkgrey
 set cursorline " highlight current line
