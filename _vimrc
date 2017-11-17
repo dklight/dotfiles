@@ -25,6 +25,14 @@ Plugin 'plasticboy/vim-markdown'
 
 Plugin 'vim-scripts/indenthtml.vim'
 
+" Plugin 'Shougo/neocomplete.vim'
+
+Plugin 'mfukar/robotframework-vim'
+
+Plugin 'nvie/vim-flake8'
+
+Plugin 'vim-syntastic/syntastic'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -34,6 +42,9 @@ filetype plugin indent on    " required
 " auto reload vimrc when editing it
 autocmd! BufWritePost .vimrc source ~/.vimrc
 
+" remember more commands and search history
+set history=10000
+
 "" User Interface
 set number " need those line numbers
 set mouse=a
@@ -41,15 +52,13 @@ set ttymouse=xterm2
 set ruler " show the line/column number of the cursor position
 set nowrap " don't wrap lines
 set linebreak " break line for wrapping at end of a word
-set tabstop=2 shiftwidth=2 " a tab is two spaces (or set this to 4)
 set expandtab " use spaces, not tabs (optional)
+set tabstop=4 shiftwidth=4 " a tab is two spaces (or set this to 4)
+set softtabstop=4
 set backspace=indent,eol,start " backspace through everything in insert mode
 set autoread " auto read when file is changed from outside
 set clipboard=unnamed " yank to the system register (*) by default
 set hid " hide abandon buffers in order to not lose undo history
-
-" remember more commands and search history
-set history=10000
 
 
 "" Searching
@@ -71,6 +80,8 @@ set listchars=tab:▸\ ,trail:▝ " which characters to highlight
 highlight NonText guifg=#444444
 highlight SpecialKey guifg=#444444
 set t_Co=256 " 256 color mode
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/ "highlight everything after 81 characters
 
 " Window
 set laststatus=2 " always have a status line
@@ -80,27 +91,16 @@ set showtabline=2 " always show tab bar
 " Mappings
 let mapleader=","
 cmap W! w !sudo tee % >/dev/null " sudo write this
-let g:pep8_map='<leader>8' " Run pep8
-cmap w!! w !sudo tee % >/dev/null " for when we forget to use sudo to open/edit a file
-nnoremap <leader>. :lcd %:p:h<CR> " Set working directory
-nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR> " Remove trailing whitespace on <leader>S
 
+" Syntax checking
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" Completion
-" set wildmenu " enhanced command line completion
-" set wildmode=full
-" set wildignore+=*.o,*.obj,.bundle,coverage,doc,.DS_Store,_html,.git,*.rbc,*.class,.svn,vendor/gems/*,vendor/rails/*
-" set complete=.,w,b,u,t " don't complete with included files (i)
-" set foldmethod=manual " for super fast autocomplete
-" set completeopt=menuone,longest,preview " don't select first item, follow typing in autocomplete
-" set pumheight=6 " Keep a small completion window
-" autocmd FileType python set omnifunc=pythoncomplete#Complete
-" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-" autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-" autocmd FileType c set omnifunc=ccomplete#Complete
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 
 " vimtip#80 restore cursor to file position in previous editing session
@@ -139,7 +139,7 @@ let g:vim_markdown_folding_disabled=1
 " Formatting
 filetype on
 filetype plugin on
-set smarttab " insert tabs on line start according to context
+"set smarttab " insert tabs on line start according to context
 set paste
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
