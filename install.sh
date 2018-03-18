@@ -34,9 +34,21 @@ if [ "$1" = "restore" ]; then
       done
       exit
 else
-    # Dependencies
-    PACKAGES="git zsh screen vim-nox python-pip"
-    sudo apt-get update && sudo apt-get install -y "$PACKAGES"
+    # Install Dependencies
+    if [ "$OS" = "Linux" ]; then
+        PACKAGES='git zsh screen vim-nox python-pip'
+        sudo apt-get update && sudo apt-get install -y "$PACKAGES"
+    else
+        # Install brew package manager
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+        BREW_PACKAGES="zsh screen vim ansible coreutils binutils diffutils \\n
+                      findutils gnu-indent gnu-sed gnu-tar gnu-which grep \\n
+                      watch wget shellcheck"
+        CASK_PACKAGES='iterm2 docker vagrant'
+        brew cask install "$BREW_PACKAGES"
+        brew install "$CASK_PACKAGES"
+    fi
 
     # Clone repo
     if [ -e "$HOME/.dotfiles" ]; then
