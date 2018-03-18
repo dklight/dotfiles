@@ -28,42 +28,42 @@ function unlink_file {
 
 
 if [ "$1" = "restore" ]; then
-  for i in _*
-    do
-      unlink_file "$i"
-    done
-    exit
+    for i in _*
+      do
+          unlink_file "$i"
+      done
+      exit
 else
-  # Dependencies
-  PACKAGES="git zsh screen vim-nox python-pip"
-  sudo apt-get update && sudo apt-get install -y "$PACKAGES"
+    # Dependencies
+    PACKAGES="git zsh screen vim-nox python-pip"
+    sudo apt-get update && sudo apt-get install -y "$PACKAGES"
 
-  # Clone repo
-  if [ -e "~/.dotfiles" ]; then
-    echo "The ~/.dotfiles configuration already exists" && exit 1
-  else
-    git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
-  fi
+    # Clone repo
+    if [ -e "$HOME/.dotfiles" ]; then
+        echo "The $HOME/.dotfiles configuration already exists" && exit 1
+    else
+        git clone https://github.com/dklight/dotfiles.git ~/.dotfiles
+    fi
 
-  # Initialize submodules
-  cd ~/.dotfiles
-  git submodule update --init --recursive
+    # Initialize submodules
+    cd "$HOME/.dotfiles"
+    git submodule update --init --recursive
 
-  # Link files
-  for i in _*
-    do
-      link_file "$i"
-    done
+    # Link files
+    for i in _*
+        do
+            link_file "$i"
+        done
 
-  # Install needed fonts
-  ~/.dotfiles/powerline-fonts/install.sh
+    # Install needed fonts
+    ~/.dotfiles/powerline-fonts/install.sh
 
-  # Make ZSH the default shell
-  chsh -s $(which zsh)
+    # Make ZSH the default shell
+    chsh -s "$(which zsh)"
 
-  # Initialize Vim
-  vim +PluginInstall +qall 2>&1 > /dev/null
+    # Initialize Vim
+    vim +PluginInstall +qall > /dev/null 2>&1
 
-  # AWS
-  sudo pip install awscli
+    # AWS
+    sudo pip install awscli
 fi
