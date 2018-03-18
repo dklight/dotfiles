@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+OS="$(uname -s)"
+
 # Functions taken from https://github.com/dongweiming/dotfiles bootstrap.sh
 
 function link_file {
