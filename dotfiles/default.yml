@@ -1,4 +1,0 @@
-- name: wrapper for role testing
-  hosts: localhost
-  roles:
-    - 'dotfiles'
