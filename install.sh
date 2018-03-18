@@ -10,10 +10,10 @@ function link_file {
     target="${HOME}/${1/_/.}"
 
     if [ -e "${target}" ] && [ ! -L "${target}" ]; then
-        mv $target $target.df.bak
+        mv "$target" "$target.df.bak"
     fi
 
-    ln -sf ${source} ${target}
+    ln -sf "${source}" "${target}"
 }
 
 function unlink_file {
@@ -21,8 +21,8 @@ function unlink_file {
     target="${HOME}/${1/_/.}"
 
     if [ -e "${target}.df.bak" ] && [ -L "${target}" ]; then
-        unlink ${target}
-        mv $target.df.bak $target
+        unlink "${target}"
+        mv "$target.df.bak" "$target"
     fi
 }
 
@@ -30,13 +30,13 @@ function unlink_file {
 if [ "$1" = "restore" ]; then
   for i in _*
     do
-      unlink_file $i
+      unlink_file "$i"
     done
     exit
 else
   # Dependencies
-  PACKAGES='git zsh screen vim-nox python-pip'
-  sudo apt-get update && sudo apt-get install -y $PACKAGES
+  PACKAGES="git zsh screen vim-nox python-pip"
+  sudo apt-get update && sudo apt-get install -y "$PACKAGES"
 
   # Clone repo
   if [ -e "~/.dotfiles" ]; then
@@ -52,7 +52,7 @@ else
   # Link files
   for i in _*
     do
-      link_file $i
+      link_file "$i"
     done
 
   # Install needed fonts
