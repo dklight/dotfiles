@@ -15,13 +15,9 @@ dklight's dotfiles and stuff
 
 WARNING
 -------
-*Be aware the automatic installation could (AND PROBABLY DO) damage your current configuration*
+*Be aware the automatic installation could (AND PROBABLY WILL) damage your current configuration*
 UPDATE: it actually backs it up, but better be on the safe side.
 
-Testing
--------
-
-Right now I'm in the process of moving the raw bash scripts to Ansible + Test Kitchen + Vagrant + Serverspec
 
 Installation
 ------------
@@ -32,12 +28,8 @@ To install just copy this to your terminal:
 
 To Do list
 ----------
- * Ansible playbook for Ubuntu
- * Ansible playbook for Fedora
- * Serverspec check for
-  * git
-  * vim
-  * zsh
-  * gnu screen
- * Check for best choice for sshaskpass
+ * OSX: Add better support for bootstraping
+ * Linux: Check for best choice for sshaskpass
  * Install and configure aditional tools like ansible, vagrant, docker, kitchen, etc
+ * Add testing with shellcheck
+ * Add CI
