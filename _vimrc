@@ -87,7 +87,7 @@ highlight NonText guifg=#444444
 highlight SpecialKey guifg=#444444
 set t_Co=256 " 256 color mode
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/ "highlight everything after 81 characters
+match OverLength /\%121v.\+/ "highlight everything after 81 characters
 
 " Window
 set laststatus=2 " always have a status line
