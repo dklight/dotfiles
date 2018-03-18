@@ -13,7 +13,6 @@ antigen bundle compleat
 antigen bundle debian
 antigen bundle history-substring-search
 antigen bundle screen
-antigen bundle colored-man
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
